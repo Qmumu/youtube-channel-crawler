@@ -20,8 +20,6 @@ __pycache__/
 *.swo
 
 # Data files
-*.csv
-*.json
 logs/
 
 # Distribution / packaging
