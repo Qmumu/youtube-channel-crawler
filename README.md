@@ -65,17 +65,14 @@ This project utilizes two different approaches to fetch YouTube data:
 
 ### Search Logic Flow
 Seed Channel
-│
-├── Channel Name Search
-│ └── Get strongly related channels
-│
-├── Keywords Search
-│ └── Get content-type related channels
-│
-└── Results Processing
-├── Remove duplicates
-├── Validate relevance
-└── Store valid channels
+Channel Name Search
+- Get strongly related channels
+Keywords Search
+-Get content-type related channels
+-Results Processing
+-Remove duplicates
+-Validate relevance
+-Store valid channels
 
 
 ### Benefits of Hybrid Approach
@@ -138,50 +135,21 @@ channel_id,channel_url
 @example,https://youtube.com/@example
 ```
 
-## Usage
-
-1. Collect channel information:
-```python
-python youtube_main.py --mode channel_detail
-```
-
-2. Find related channels:
-```python
-python youtube_main.py --mode related_channel
-```
-
 ## Data Structure
 
-### Channel Information
+### Channel Information Example
 ```json
 {
-    "title": "Channel Name",
-    "channel_id": "@channel",
-    "publishedAt": "2024-01-20T00:00:00Z",
-    "statistics": {
-        "viewCount": "1000000",
-        "subscriberCount": "10000",
-        "videoCount": "100"
-    },
-    "keywords": "keyword1 keyword2 keyword3",
-    "channel_url": "https://youtube.com/@channel"
-}
+    "title": "PhotographyTV",
+    "channel_url": "https://www.youtube.com/@PhotographyTVcom",
+    "channel_id": "@photographytvcom",
+    "publishedAt": "2016-05-10T03:23:09Z",
+    "statistics": "{'viewCount': '1306113', 'subscriberCount': '14700', 'videoCount': '86'}",
+    "head_pic": "https://yt3.ggpht.com/ytc/AIdro_mojugPq6Mb7jmD6noe49xsb3tGAgBe0fR0BGtEKKDKPdo=s240-c-k-c0x00ffffff-no-rj",
+    "keywords": "\"photography tutorials\" \"travel photography\" \"how to photography\" \"starting a youtube channel\" \"photography gear\" \"landscape photography\"",
+    "videos": "[{'title': 'Art Wolfe Interview - Travel Photography', 'link': 'https://www.youtube.com/watch?v=eXwVJpfq2jQ'}, {'title': 'Quit Your Job to Become a Full Time Photographer - Interview', 'link': 'https://www.youtube.com/watch?v=OecrYAPbC0I'}, {'title': 'Wildlife Photography Interview with Jake Davis', 'link': 'https://www.youtube.com/watch?v=E17GFWZHLNY'}]"
+  }
 ```
-
-## Project Structure
-youtube-channel-crawler/
-├── youtube/
-│ ├── api.py # YouTube API interactions
-│ ├── handler.py # Data processing logic
-│ └── youtube_main.py # Main execution file
-├── utils/
-│ └── utils.py # Utility functions
-├── data/
-│ ├── youtube_seeds.csv # Seed channel data
-│ └── youtube_channel_data.csv # Processed channel data
-├── requirements.txt
-└── README.md
-
 
 ## Rate Limiting and Quotas
 
